@@ -77,12 +77,11 @@
 		09D6CDD923294899007746B7 /* SeaWorld */ = {
 			isa = PBXGroup;
 			children = (
-				09D6CDDA23294899007746B7 /* AppDelegate.swift */,
-				09D6CDDC23294899007746B7 /* ViewController.swift */,
+				09D6CDFA2329489F007746B7 /* AppDelegate */,
+				09D6CDFB232948A8007746B7 /* Resourses */,
+				09D6CDFC232948B2007746B7 /* SupportingFiles */,
 				09D6CDDE23294899007746B7 /* Main.storyboard */,
-				09D6CDE123294899007746B7 /* Assets.xcassets */,
-				09D6CDE323294899007746B7 /* LaunchScreen.storyboard */,
-				09D6CDE623294899007746B7 /* Info.plist */,
+				09D6CDDC23294899007746B7 /* ViewController.swift */,
 			);
 			path = SeaWorld;
 			sourceTree = "<group>";
@@ -94,6 +93,31 @@
 				09D6CDF123294899007746B7 /* Info.plist */,
 			);
 			path = SeaWorldTests;
+			sourceTree = "<group>";
+		};
+		09D6CDFA2329489F007746B7 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				09D6CDDA23294899007746B7 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		09D6CDFB232948A8007746B7 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				09D6CDE123294899007746B7 /* Assets.xcassets */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		09D6CDFC232948B2007746B7 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				09D6CDE323294899007746B7 /* LaunchScreen.storyboard */,
+				09D6CDE623294899007746B7 /* Info.plist */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
