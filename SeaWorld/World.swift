@@ -6,30 +6,34 @@
 //  Copyright © 2019 Andrey. All rights reserved.
 //
 
+typealias WorldCell = (coordinate: Int, entity: Entity)
+struct WorldState {
 
-struct WorldCell {
+    var state: [Int: Entity]
 
-    var entity: Entity
-    var absCoordinate: UInt
+    func entities(at coords: [Int]) -> [Int: Entity] {
+        return state.filter { coords.contains($0.key) }
+    }
 }
+
 
 struct World {
 
-    let cells: [WorldCell]
+    let xCount: Int
+    let yCount: Int
 
-    private var xCount: UInt
-    private var yCount: UInt
-    private var count: UInt {
+    private var count: Int {
         return xCount * yCount
     }
 
-    func neighboorCells(curr: UInt) -> [UInt] {
+    func neighborCells(_ currentCoord: Int) -> [Int] {
 
-        var topLeft = curr - xCount - 1, top = curr - xCount, topRight = curr - xCount + 1,
-            left = curr - 1, right = curr + 1,
-            bottomLeft = curr + xCount - 1, bottom = curr + xCount, bottomRight = curr + xCount + 1
+        var topLeft = currentCoord - xCount - 1, top = currentCoord - xCount, topRight = currentCoord - xCount + 1,
+            left = currentCoord - 1, right = currentCoord + 1,
+            bottomLeft = currentCoord + xCount - 1, bottom = currentCoord + xCount, bottomRight = currentCoord + xCount + 1
 
-        let currY = UInt(Double(curr % xCount).rounded(.down))
+        //TODO: вынести в отдельную функцию
+        let currY = Int(Double(currentCoord % xCount).rounded(.down))
         if /* on the top edge*/ currY == 0 {
             top += xCount * yCount
             topLeft += xCount * yCount
@@ -40,11 +44,11 @@ struct World {
             bottomRight -= xCount * yCount
         }
 
-        if /* left edge*/ curr % xCount == 0 {
+        if /* left edge*/ currentCoord % xCount == 0 {
             left += xCount
             topLeft += xCount
             bottomLeft += xCount
-        } /* right edge */ else if (curr + 1) % xCount  == 0 {
+        } /* right edge */ else if (currentCoord + 1) % xCount  == 0 {
             right -= xCount
             topRight -= xCount
             bottomRight -= xCount
@@ -52,4 +56,58 @@ struct World {
 
         return [topLeft, top, topRight, left, right, bottomLeft, bottom, bottomRight]
     }
+}
+
+class Processor {
+
+    var currentTurn = 0
+    let world: World
+    var worldState = WorldState(state: [:])
+
+    init() {
+        //инициализация мира
+        world = World(xCount: 8, yCount: 8)
+
+        // заселение
+        worldState.state = populate()
+    }
+
+    func turn() {
+        worldState.state.forEach { cell in
+            let entetyInCell = cell.value
+            let availableCoords = world.neighborCells(Int(cell.key))
+            let availableCells = worldState.entities(at: availableCoords)
+            let newStates = entetyInCell.turn(curr: cell, available: availableCells)
+            worldState.state.merge(newStates) { (_, new) in new }
+        }
+    }
+
+    func populate() -> [Int: Entity] {
+        let totalCells: Double = 56
+        let orcaPart = 0.05
+        let penguinPart = 0.5
+
+        let totalOrca = Int((totalCells * orcaPart).rounded(.down))
+        let totalPenguin = Int((totalCells * penguinPart).rounded(.down))
+
+        let orca = Array(repeating: Orca(), count: totalOrca)
+        let penguin = Array(repeating: Penguin(), count: totalPenguin)
+        let spare = Array(repeating: Entity(), count: Int(totalCells) - totalPenguin - totalOrca)
+
+        var allEntities = [Entity]()
+        allEntities.append(contentsOf: orca)
+        allEntities.append(contentsOf: penguin)
+        allEntities.append(contentsOf: spare)
+
+        allEntities.shuffle()
+
+        var state = [Int: Entity]()
+
+        for (index, entity) in allEntities.enumerated() {
+            state.updateValue(entity, forKey: index)
+        }
+        return state
+    }
+
+
 }

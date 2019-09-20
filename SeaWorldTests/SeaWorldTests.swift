@@ -19,16 +19,17 @@ class SeaWorldTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    func testNeighboorCells() {
+        let world = World(xCount: 8, yCount: 8)
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        let testData = [
+            (for: 0, neighbors: [1, 8, 9, 7, 15, 63, 56, 57]),   // top + left
+            (for: 12, neighbors: [3, 4, 5, 11, 13, 19, 20, 21]),  // center
+            (for: 63, neighbors: [62, 54, 55, 48, 56, 6, 7, 0])   // bottom + right
+        ]
+
+        testData.forEach { testData in
+            XCTAssertEqual(testData.neighbors.sorted(), world.neighboorCells(curr: testData.for).sorted())
         }
     }
-
 }
