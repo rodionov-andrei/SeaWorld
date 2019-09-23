@@ -14,6 +14,7 @@
 		0923EE0D2337CBCD00F9AA9B /* Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0923EE0C2337CBCD00F9AA9B /* Processor.swift */; };
 		09298B76232BC9480093017B /* Penguin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09298B75232BC9480093017B /* Penguin.swift */; };
 		0999C4312338F14300A569DA /* OrcaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999C4302338F14300A569DA /* OrcaTests.swift */; };
+		0999C4332339002E00A569DA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0999C4322339002E00A569DA /* Constants.swift */; };
 		09D6CDDB23294899007746B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D6CDDA23294899007746B7 /* AppDelegate.swift */; };
 		09D6CDDD23294899007746B7 /* MainScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D6CDDC23294899007746B7 /* MainScreenVC.swift */; };
 		09D6CDE223294899007746B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09D6CDE123294899007746B7 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		0923EE0C2337CBCD00F9AA9B /* Processor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Processor.swift; sourceTree = "<group>"; };
 		09298B75232BC9480093017B /* Penguin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Penguin.swift; sourceTree = "<group>"; };
 		0999C4302338F14300A569DA /* OrcaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrcaTests.swift; sourceTree = "<group>"; };
+		0999C4322339002E00A569DA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		09D6CDD723294899007746B7 /* SeaWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeaWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D6CDDA23294899007746B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09D6CDDC23294899007746B7 /* MainScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenVC.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				09D6CDFB232948A8007746B7 /* Resourses */,
 				09D6CDFC232948B2007746B7 /* SupportingFiles */,
 				09D6CDDC23294899007746B7 /* MainScreenVC.swift */,
+				0999C4322339002E00A569DA /* Constants.swift */,
 			);
 			path = SeaWorld;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				09D6CDDB23294899007746B7 /* AppDelegate.swift in Sources */,
 				0923EE092337CB7100F9AA9B /* Animal.swift in Sources */,
 				0923EE0D2337CBCD00F9AA9B /* Processor.swift in Sources */,
+				0999C4332339002E00A569DA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

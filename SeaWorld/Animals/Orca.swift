@@ -9,7 +9,8 @@
 final class Orca: Animal {
 
     private var turnsWithoutFeed = 0
-    private let breedPeriod = 8
+    private let breedPeriod = Consts.orcaBreedPeriod
+    private let maxTurnsWithoutFood = Consts.orcaMaxTurnsWithoutFood
 
     override func turn(curr: Int, available: WorldCells) -> WorldCells {
         _ = super.turn(curr: curr, available: available)

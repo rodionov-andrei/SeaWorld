@@ -10,7 +10,7 @@ import UIKit
 
 final class Penguin: Animal {
 
-    private let breedPeriod = 3
+    private let breedPeriod = Consts.penguinBreedPeriod
 
     override func turn(curr: Int, available: WorldCells) -> WorldCells {
         _ = super.turn(curr: curr, available: available)

@@ -11,7 +11,8 @@ final class Processor {
     private var currentTurn = 0
     var world: World
 
-    init(worldXCount: Int = 8, worldYCount: Int = 8, orcaPart: Double = 0.05, penguinPart: Double = 0.5) {
+    init(worldXCount: Int = Consts.worldXSize, worldYCount: Int = Consts.worldYSize,
+         orcaPart: Double = Consts.orcaFractionOnStart, penguinPart: Double = Consts.penguinFractionOnStart) {
         world = World(xCount: worldXCount, yCount: worldYCount, cells: [:])
         world.cells = populate(orcaPart: orcaPart, penguinPart: penguinPart)
     }
