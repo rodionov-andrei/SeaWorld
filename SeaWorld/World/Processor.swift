@@ -41,14 +41,13 @@ final class Processor {
 
         let totalOrca = Int((Double(totalCells) * orcaPart).rounded(.down))
         let totalPenguin = Int((Double(totalCells) * penguinPart).rounded(.down))
+        let totalSpare = Int(totalCells) - totalPenguin - totalOrca
 
-        let orca = Array(repeating: Orca(), count: totalOrca)
-        let penguin = Array(repeating: Penguin(), count: totalPenguin)
-        let spare = Array(repeating: Animal(), count: Int(totalCells) - totalPenguin - totalOrca)
+        let allEntities: [Animal?] = (.init(repeating: Orca(), count: totalOrca) +
+                                      .init(repeating: Penguin(), count: totalPenguin) +
+                                      .init(repeating: nil, count: totalSpare)).shuffled()
 
-        let allEntities = (orca + penguin + spare).shuffled()
-
-        var state = [Int: Animal]()
+        var state = WorldCells()
         for (index, entity) in allEntities.enumerated() {
             state.updateValue(entity, forKey: index)
         }
