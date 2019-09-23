@@ -14,21 +14,23 @@ class PenguinTests: XCTestCase {
     func testPopulateEntitiesProportion() {
         var world = World(xCount: 3, yCount: 3, cells: WorldCells())
         let testPenguin = Penguin()
-        world.cells = ([1: Orca(), 2: Penguin(), 3: Orca(),
-                        4: nil, 5: testPenguin, 6: Penguin(),
-                        7: Orca(), 8: Orca()])
-        let availableCells = world.availableCells(forAnimalAt: 5)
+        world.cells = ([0: Orca(), 1: Penguin(), 2: Orca(),
+                        3: nil, 4: testPenguin, 5: Penguin(),
+                        6: Orca(), 7: Orca(), 8: Orca()])
+        let availableCells = world.availableCells(forAnimalAt: 4)
 
         // 1st turn
-        var changedCells = testPenguin.turn(curr: 5, available: availableCells)
-        XCTAssertTrue(changedCells[5] == nil)
-        XCTAssertTrue(changedCells[4] is Penguin)
+        var changedCells = testPenguin.turn(curr: 4, available: availableCells)
+        XCTAssertTrue(changedCells[4]! == nil)
+        XCTAssertTrue(changedCells[3] is Penguin)
 
         // 2nd turn
-        changedCells = testPenguin.turn(curr: 5,
+        changedCells = testPenguin.turn(curr: 3,
                                         available: changedCells)
-        XCTAssertTrue(changedCells[4] == nil)
-        XCTAssertTrue(changedCells[5] is Penguin)
+        XCTAssertTrue(changedCells[3]! == nil)
+        XCTAssertTrue(changedCells[4] is Penguin)
+
+        //
     }
 
 }

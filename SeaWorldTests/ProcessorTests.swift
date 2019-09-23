@@ -43,5 +43,13 @@ class ProcessorTests: XCTestCase {
         let processor2 = Processor(worldXCount: xCount, worldYCount: yCount,
                                    orcaPart: orcaPart, penguinPart: penguinPart)
 
+        var isDifferentWorlds = false
+        for cell in processor1.world.cells {
+            if type(of: processor2.world.cells[cell.key]) != type(of: cell.value) {
+                isDifferentWorlds = true
+                break
+            }
+        }
+        XCTAssertTrue(isDifferentWorlds)
     }
 }

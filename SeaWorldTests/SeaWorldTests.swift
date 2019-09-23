@@ -23,9 +23,9 @@ class SeaWorldTests: XCTestCase {
         let world = World(xCount: 8, yCount: 8, cells: WorldCells())
 
         let testData = [
-            (for: 0, neighbors: [1, 8, 9, 7, 15, 63, 56, 57]),   // top + left
-            (for: 12, neighbors: [3, 4, 5, 11, 13, 19, 20, 21]),  // center
-            (for: 63, neighbors: [62, 54, 55, 48, 56, 6, 7, 0])   // bottom + right
+            (for: 0, neighbors: [0, 1, 8, 9, 7, 15, 63, 56, 57]),   // top + left
+            (for: 12, neighbors: [12, 3, 4, 5, 11, 13, 19, 20, 21]),  // center
+            (for: 63, neighbors: [63, 62, 54, 55, 48, 56, 6, 7, 0])   // bottom + right
         ]
 
         testData.forEach { testData in

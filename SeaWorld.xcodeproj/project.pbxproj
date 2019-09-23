@@ -71,9 +71,9 @@
 		0923EE0A2337CB8C00F9AA9B /* Animals */ = {
 			isa = PBXGroup;
 			children = (
-				09298B75232BC9480093017B /* Penguin.swift */,
-				0923EE062337CB4A00F9AA9B /* Orca.swift */,
 				0923EE082337CB7100F9AA9B /* Animal.swift */,
+				0923EE062337CB4A00F9AA9B /* Orca.swift */,
+				09298B75232BC9480093017B /* Penguin.swift */,
 			);
 			path = Animals;
 			sourceTree = "<group>";
@@ -81,8 +81,8 @@
 		0923EE0B2337CBAA00F9AA9B /* World */ = {
 			isa = PBXGroup;
 			children = (
-				09D6CDFE23294937007746B7 /* World.swift */,
 				0923EE0C2337CBCD00F9AA9B /* Processor.swift */,
+				09D6CDFE23294937007746B7 /* World.swift */,
 			);
 			path = World;
 			sourceTree = "<group>";
