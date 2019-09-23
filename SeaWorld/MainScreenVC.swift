@@ -45,12 +45,11 @@ class MainScreenVC: UIViewController {
             for _ in 0...worldProcessor.world.xCount - 1 {
                 let cell = createCellView()
                 cells.append(cell)
-                let array: [UIImage] = [#imageLiteral(resourceName: "orca"), #imageLiteral(resourceName: "penguin")]
-                cell.image = array.randomElement()
                 horizontalStack.addArrangedSubview(cell)
             }
             verticalStackView.addArrangedSubview(horizontalStack)
         }
+        putImagesOfAnimalsInCells()
         setupConstraints()
     }
 
@@ -84,6 +83,10 @@ class MainScreenVC: UIViewController {
     @objc
     private func handleTap() {
         worldProcessor.turn()
+        putImagesOfAnimalsInCells()
+    }
+
+    private func putImagesOfAnimalsInCells() {
         for (index, cell) in cells.enumerated() {
             let entity = worldProcessor.world.cells[index]
             let image: UIImage?
@@ -98,5 +101,4 @@ class MainScreenVC: UIViewController {
             cell.image = image
         }
     }
-
 }
