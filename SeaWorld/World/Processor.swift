@@ -6,19 +6,13 @@
 //  Copyright © 2019 Andrey. All rights reserved.
 //
 
-/*
-
- */
 final class Processor {
 
-    var currentTurn = 0
+    private var currentTurn = 0
     var world: World
 
     init(worldXCount: Int = 8, worldYCount: Int = 8, orcaPart: Double = 0.05, penguinPart: Double = 0.5) {
-        //инициализация мира
         world = World(xCount: worldXCount, yCount: worldYCount, cells: [:])
-
-        // заселение
         world.cells = populate(orcaPart: orcaPart, penguinPart: penguinPart)
     }
 
@@ -31,10 +25,15 @@ final class Processor {
         }
     }
 
-    /*
-     Populate world with creatures.
+    /**
+      Populate world with creatures.
+
+     - Parameter orcaPart: part of all cells occupied by orcas. From 0 to 1.
+     - Parameter penguinPart: part of all cells occupied by penguins. From 0 to 1.
+
+     - Returns: World cells filled with animals or nil. Nil is equalent to no animal.
      */
-    private func populate(orcaPart: Double, penguinPart: Double) -> [Int: Animal] {
+    private func populate(orcaPart: Double, penguinPart: Double) -> WorldCells {
         guard orcaPart + penguinPart <= 1 else {
             fatalError("Orca and penguin populations exceed maximum world capacity")
         }

@@ -6,6 +6,12 @@
 //  Copyright © 2019 Andrey. All rights reserved.
 //
 
+/*
+ Current state of the world.
+    key = cooridnate
+    value = Animal at this coordinate
+ Coordinate can be represented as single Int. It is increasing from left to right and top to bottom.
+ */
 typealias WorldCells = [Int: Animal?]
 
 /*
@@ -18,6 +24,13 @@ struct World {
 
     var cells = WorldCells()
 
+    /**
+     Find world cells available for animal in the current turn.
+
+     - Parameter coord: current animal coordiantes.
+
+     - Returns: WorldCells that can be changed by animal in the current turn.
+     */
     func availableCells(forAnimalAt coord: Int) -> WorldCells {
         let availableCoords = neighborCells(coord)
         return cells.filter { availableCoords.contains($0.key) }
