@@ -32,6 +32,9 @@ final class Orca: Animal {
             // surrounded by orcas
         }
 
+        if turnsWithoutFeed == 3 {
+            modifiedCells.updateValue(nil, forKey: curr)
+        }
         return modifiedCells
     }
 }

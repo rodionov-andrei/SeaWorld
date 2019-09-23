@@ -11,7 +11,7 @@ import XCTest
 
 class PenguinTests: XCTestCase {
 
-    func testPopulateEntitiesProportion() {
+    func testBreedOnTime() {
         var world = World(xCount: 3, yCount: 3, cells: WorldCells())
         let testPenguin = Penguin()
         world.cells = ([0: Orca(), 1: Penguin(), 2: Orca(),
@@ -30,7 +30,11 @@ class PenguinTests: XCTestCase {
         XCTAssertTrue(changedCells[3]! == nil)
         XCTAssertTrue(changedCells[4] is Penguin)
 
-        //
+        // 3rd turn. breed
+        changedCells = testPenguin.turn(curr: 4, available: changedCells)
+        XCTAssertTrue(changedCells[3] is Penguin)
+        XCTAssertTrue(changedCells[4] is Penguin)
+
     }
 
 }
