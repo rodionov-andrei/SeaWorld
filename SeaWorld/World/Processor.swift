@@ -47,9 +47,17 @@ final class Processor {
         let totalPenguin = Int((Double(totalCells) * penguinPart).rounded(.down))
         let totalSpare = Int(totalCells) - totalPenguin - totalOrca
 
-        let allEntities: [Animal?] = (.init(repeating: Orca(), count: totalOrca) +
-                                      .init(repeating: Penguin(), count: totalPenguin) +
-                                      .init(repeating: nil, count: totalSpare)).shuffled()
+        var allEntities = [Animal?]()
+        for _ in stride(from: 0, to: totalOrca, by: 1) {
+            allEntities.append(Orca())
+        }
+        for _ in stride(from: 0, to: totalPenguin, by: 1) {
+            allEntities.append(Penguin())
+        }
+        for _ in stride(from: 0, to: totalSpare, by: 1) {
+            allEntities.append(nil)
+        }
+        allEntities.shuffle()
 
         var state = WorldCells()
         for (index, entity) in allEntities.enumerated() {
