@@ -24,7 +24,8 @@ class ProcessorTests: XCTestCase {
         let count = xCount * yCount
         let orcaPart = 0.05, penguinPart = 0.5
 
-        let processor = Processor(worldXCount: xCount, worldYCount: yCount, orcaPart: orcaPart, penguinPart: penguinPart)
+        let processor = Processor(worldXCount: xCount, worldYCount: yCount,
+                                  orcaPart: orcaPart, penguinPart: penguinPart)
 
         let orcas = processor.world.cells.filter { $0.value is Orca }
         XCTAssertEqual(orcas.count, Int((Double(count) * orcaPart).rounded(.down)))
@@ -37,9 +38,10 @@ class ProcessorTests: XCTestCase {
         let xCount = 8, yCount = 8
         let orcaPart = 0.05, penguinPart = 0.5
 
-        let processor1 = Processor(worldXCount: xCount, worldYCount: yCount, orcaPart: orcaPart, penguinPart: penguinPart)
-        let processor2 = Processor(worldXCount: xCount, worldYCount: yCount, orcaPart: orcaPart, penguinPart: penguinPart)
+        let processor1 = Processor(worldXCount: xCount, worldYCount: yCount,
+                                   orcaPart: orcaPart, penguinPart: penguinPart)
+        let processor2 = Processor(worldXCount: xCount, worldYCount: yCount,
+                                   orcaPart: orcaPart, penguinPart: penguinPart)
 
-        
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Andrey. All rights reserved.
 //
 
-typealias WorldCells = [Int : Animal?]
+typealias WorldCells = [Int: Animal?]
 
 /*
  World model.
@@ -29,7 +29,6 @@ struct World {
             left = forCoord - 1, right = forCoord + 1,
             bottomLeft = forCoord + xCount - 1, bottom = forCoord + xCount, bottomRight = forCoord + xCount + 1
 
-        //TODO: вынести в отдельную функцию
         let currY = Int(Double(forCoord % xCount).rounded(.down))
         if /* on the top edge*/ currY == 0 {
             top += xCount * yCount

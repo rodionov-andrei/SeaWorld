@@ -14,9 +14,9 @@ class PenguinTests: XCTestCase {
     func testPopulateEntitiesProportion() {
         var world = World(xCount: 3, yCount: 3, cells: WorldCells())
         let testPenguin = Penguin()
-        world.cells = ([1 : Orca(), 2 : Penguin(), 3 : Orca(),
-                        4 : nil, 5: testPenguin, 6 : Penguin(),
-                        7 : Orca(), 8 : Orca()])
+        world.cells = ([1: Orca(), 2: Penguin(), 3: Orca(),
+                        4: nil, 5: testPenguin, 6: Penguin(),
+                        7: Orca(), 8: Orca()])
         let availableCells = world.availableCells(forAnimalAt: 5)
 
         // 1st turn
@@ -32,4 +32,3 @@ class PenguinTests: XCTestCase {
     }
 
 }
-

@@ -56,4 +56,3 @@ final class Processor {
         return state
     }
 }
-
