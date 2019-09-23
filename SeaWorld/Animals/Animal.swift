@@ -8,10 +8,16 @@
 
 class Animal {
 
-    var turnsWithoutBreed: UInt = 0
+    var isMadeTurn = false
+    var turnsWithoutBreed: Int = 0
 
     func turn(curr: Int, available: WorldCells ) -> WorldCells {
         turnsWithoutBreed += 1
+        isMadeTurn = true
         return [:]
+    }
+
+    func prepareForNextTurn() {
+        isMadeTurn = false
     }
 }

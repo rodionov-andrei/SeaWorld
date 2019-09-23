@@ -13,6 +13,7 @@ final class Orca: Animal {
     private let maxTurnsWithoutFood = Consts.orcaMaxTurnsWithoutFood
 
     override func turn(curr: Int, available: WorldCells) -> WorldCells {
+        guard !isMadeTurn else { return available }
         _ = super.turn(curr: curr, available: available)
         guard let currEntity = available[curr] else { fatalError() }
 

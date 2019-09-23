@@ -24,6 +24,9 @@ final class Processor {
             let newStates = entity.turn(curr: cell.key, available: availableCells)
             world.cells.merge(newStates) { (_, new) in new }
         }
+        world.cells.forEach { cell in
+            cell.value?.prepareForNextTurn()
+        }
     }
 
     /**
