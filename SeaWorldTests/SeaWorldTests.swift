@@ -20,7 +20,7 @@ class SeaWorldTests: XCTestCase {
     }
 
     func testNeighboorCells() {
-        let world = World(xCount: 8, yCount: 8)
+        let world = World(xCount: 8, yCount: 8, cells: WorldCells())
 
         let testData = [
             (for: 0, neighbors: [1, 8, 9, 7, 15, 63, 56, 57]),   // top + left
@@ -29,7 +29,7 @@ class SeaWorldTests: XCTestCase {
         ]
 
         testData.forEach { testData in
-            XCTAssertEqual(testData.neighbors.sorted(), world.neighboorCells(curr: testData.for).sorted())
+            XCTAssertEqual(testData.neighbors.sorted(), world.neighborCells(testData.for).sorted())
         }
     }
 }
