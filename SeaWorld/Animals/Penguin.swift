@@ -19,7 +19,7 @@ final class Penguin: Animal {
 
         var modifiedCells = available
 
-        if turnsWithoutBreed >= breedPeriod, let spare = available.first(where: { $0.value == nil }) {
+        if (turnsWithoutBreed % breedPeriod) == 0, let spare = available.first(where: { $0.value == nil }) {
             modifiedCells.updateValue(Penguin(), forKey: spare.key)
             turnsWithoutBreed = 0
         } else if let spare = available.first(where: { $0.value == nil }) {
